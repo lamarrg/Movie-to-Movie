@@ -14,6 +14,9 @@
 		2A14EC8E1BC204C200F03666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EC8C1BC204C200F03666 /* LaunchScreen.storyboard */; };
 		2A14EC991BC204C200F03666 /* movie_databaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14EC981BC204C200F03666 /* movie_databaseTests.swift */; };
 		2A14ECA41BC204C200F03666 /* movie_databaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14ECA31BC204C200F03666 /* movie_databaseUITests.swift */; };
+		2A23AB501BD485BB003C5167 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A23AB4F1BD485BB003C5167 /* placeholder.png */; settings = {ASSET_TAGS = (); }; };
+		2A3D5F051BC9A96500AD4104 /* ResultsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3D5F041BC9A96500AD4104 /* ResultsArray.swift */; settings = {ASSET_TAGS = (); }; };
+		2ABDB8531BC4B33600AD7E0E /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABDB8521BC4B33600AD7E0E /* MovieData.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		2A14EC9F1BC204C200F03666 /* movie databaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "movie databaseUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A14ECA31BC204C200F03666 /* movie_databaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movie_databaseUITests.swift; sourceTree = "<group>"; };
 		2A14ECA51BC204C200F03666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A23AB4F1BD485BB003C5167 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		2A3D5F041BC9A96500AD4104 /* ResultsArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsArray.swift; sourceTree = "<group>"; };
+		2ABDB8521BC4B33600AD7E0E /* MovieData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +103,12 @@
 		2A14EC821BC204C200F03666 /* movie database */ = {
 			isa = PBXGroup;
 			children = (
+				2A23AB4F1BD485BB003C5167 /* placeholder.png */,
 				2A14EC831BC204C200F03666 /* AppDelegate.swift */,
 				2A14EC851BC204C200F03666 /* ViewController.swift */,
+				2ABDB8521BC4B33600AD7E0E /* MovieData.swift */,
 				2A14EC871BC204C200F03666 /* Main.storyboard */,
+				2A3D5F041BC9A96500AD4104 /* ResultsArray.swift */,
 				2A14EC8A1BC204C200F03666 /* Assets.xcassets */,
 				2A14EC8C1BC204C200F03666 /* LaunchScreen.storyboard */,
 				2A14EC8F1BC204C200F03666 /* Info.plist */,
@@ -229,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A14EC8E1BC204C200F03666 /* LaunchScreen.storyboard in Resources */,
+				2A23AB501BD485BB003C5167 /* placeholder.png in Resources */,
 				2A14EC8B1BC204C200F03666 /* Assets.xcassets in Resources */,
 				2A14EC891BC204C200F03666 /* Main.storyboard in Resources */,
 			);
@@ -255,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABDB8531BC4B33600AD7E0E /* MovieData.swift in Sources */,
 				2A14EC861BC204C200F03666 /* ViewController.swift in Sources */,
+				2A3D5F051BC9A96500AD4104 /* ResultsArray.swift in Sources */,
 				2A14EC841BC204C200F03666 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +493,7 @@
 				2A14ECAA1BC204C200F03666 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A14ECAB1BC204C200F03666 /* Build configuration list for PBXNativeTarget "movie databaseTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +502,7 @@
 				2A14ECAD1BC204C200F03666 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A14ECAE1BC204C200F03666 /* Build configuration list for PBXNativeTarget "movie databaseUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +511,7 @@
 				2A14ECB01BC204C200F03666 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
