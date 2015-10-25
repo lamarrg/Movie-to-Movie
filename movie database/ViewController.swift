@@ -71,13 +71,13 @@ class ViewController: UIViewController {
     @IBAction func compareActorArrays(sender: UIButton) {
         
         mergeArrayMatches()
-        alertNoSingleActorFound()
+        //alertNoSingleActorFound()
     }
     
     
     func alertNoSingleActorFound(){
     
-        let alert = UIAlertController(title: "Sorry" , message: "We are unalge to return a single result. Please check the name spelling and try again.", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Sorry" , message: "We are unable to return a single result. Please check the name spelling and try again.", preferredStyle: .Alert)
         
         let alertAcknowledge = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
             
