@@ -13,54 +13,44 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var actor1TextField: UITextField!
     
-    
     @IBOutlet weak var actor2TextField: UITextField!
     
-    
     @IBAction func getActor1Data(sender: UIButton) {
+        actorImageView = self.actor1Image
         
         if !array1.isEmpty {
             array1.removeAll()
         }
         
-        searchActorName(actor1TextField.text!, actorColumn: 1)
-        actorImageView = actor1Image
-        
+        searchActorName(actor1TextField.text!, actorColumn: 1) { (alertString, success) -> Void in
+            if success == false {
+                dispatch_sync(dispatch_get_main_queue()) {
+                    self.actor1Image.image = UIImage(named: "placeholder.png")
+                    self.alertNoSingleActorFound(alertString)
+                }
+            }
+        }
     }
     
     @IBAction func getActor2Data(sender: UIButton) {
+        actorImageView = self.actor2Image
         
         if !array2.isEmpty {
             array2.removeAll()
         }
         
-        searchActorName(actor2TextField.text!, actorColumn: 2)
-        actorImageView = actor2Image
         
-    }
-    
-    
-    @IBAction func showResults(sender: UIButton) {
-        
-        if array3.count == 0 {
-                
-                let alert = UIAlertController(title: "Oooops" , message: "Looks like there are no common movies/films!", preferredStyle: .Alert)
-                
-                let alertConfirm = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-                let alertAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
+        searchActorName(actor2TextField.text!, actorColumn: 2) { (alertString, success) -> Void in
+            if success == false {
+                dispatch_sync(dispatch_get_main_queue()) {
+                    self.actor2Image.image = UIImage(named: "placeholder.png")
+                    self.alertNoSingleActorFound(alertString)
                     
                 }
-
-                alert.addAction(alertConfirm)
-                alert.addAction(alertAction)
-                
-                self.presentViewController(alert, animated: true, completion: nil)
-        
-        } else {
-            self.performSegueWithIdentifier("viewResults", sender: self)
+            }
         }
-        
     }
+    
     
     @IBOutlet weak var actor1Image: UIImageView!
     
@@ -70,14 +60,33 @@ class ViewController: UIViewController {
     
     @IBAction func compareActorArrays(sender: UIButton) {
         
-        mergeArrayMatches()
-        //alertNoSingleActorFound()
+        mergeArrayMatches { (success) -> Void in
+            
+            if success == true {
+                self.performSegueWithIdentifier("viewResults", sender: self)
+                    
+                }
+            
+            if success == false {
+                    
+                    let alert = UIAlertController(title: "Oooops" , message: "Looks like there are no common movies/films!", preferredStyle: .Alert)
+                    
+                    let alertConfirm = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    
+                    alert.addAction(alertConfirm)
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+            
+        }
+
     }
     
     
-    func alertNoSingleActorFound(){
+    func alertNoSingleActorFound(alertString: String){
     
-        let alert = UIAlertController(title: "Sorry" , message: "We are unable to return a single result. Please check the name spelling and try again.", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Sorry" , message: alertString, preferredStyle: .Alert)
         
         let alertAcknowledge = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
             
@@ -86,11 +95,8 @@ class ViewController: UIViewController {
         alert.addAction(alertAcknowledge)
         
         self.presentViewController(alert, animated: true, completion: nil)
-
-    
+        
     }
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
