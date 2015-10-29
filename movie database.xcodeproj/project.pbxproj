@@ -14,9 +14,9 @@
 		2A14EC8E1BC204C200F03666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EC8C1BC204C200F03666 /* LaunchScreen.storyboard */; };
 		2A14EC991BC204C200F03666 /* movie_databaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14EC981BC204C200F03666 /* movie_databaseTests.swift */; };
 		2A14ECA41BC204C200F03666 /* movie_databaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14ECA31BC204C200F03666 /* movie_databaseUITests.swift */; };
-		2A23AB501BD485BB003C5167 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A23AB4F1BD485BB003C5167 /* placeholder.png */; settings = {ASSET_TAGS = (); }; };
-		2A3D5F051BC9A96500AD4104 /* ResultsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3D5F041BC9A96500AD4104 /* ResultsArray.swift */; settings = {ASSET_TAGS = (); }; };
-		2ABDB8531BC4B33600AD7E0E /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABDB8521BC4B33600AD7E0E /* MovieData.swift */; settings = {ASSET_TAGS = (); }; };
+		2A23AB501BD485BB003C5167 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A23AB4F1BD485BB003C5167 /* placeholder.png */; };
+		2A3D5F051BC9A96500AD4104 /* ResultsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3D5F041BC9A96500AD4104 /* ResultsArray.swift */; };
+		2ABDB8531BC4B33600AD7E0E /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABDB8521BC4B33600AD7E0E /* MovieData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +201,7 @@
 				TargetAttributes = {
 					2A14EC7F1BC204C200F03666 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 2H5QQ8S295;
 					};
 					2A14EC931BC204C200F03666 = {
 						CreatedOnToolsVersion = 7.0;
@@ -408,10 +409,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "movie database/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hesitantpaw.movie-database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -419,10 +423,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "movie database/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hesitantpaw.movie-database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
