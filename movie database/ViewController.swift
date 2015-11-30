@@ -8,46 +8,89 @@
 
 import UIKit
 
+    var actorColumn = 1
+
+    var tempImageView: UIImageView?
 
 class ViewController: UIViewController {
+    
+
     
     @IBOutlet weak var actor1TextField: UITextField!
     
     @IBOutlet weak var actor2TextField: UITextField!
     
     @IBAction func getActor1Data(sender: UIButton) {
+        
+        if actor1TextField.text != "" {
+    
+        actorColumn = 1
         actorImageView = self.actor1Image
+        tempImageView = actorImageView
         
         if !array1.isEmpty {
             array1.removeAll()
         }
         
-        searchActorName(actor1TextField.text!, actorColumn: 1) { (alertString, success) -> Void in
+        searchActorName(actor1TextField.text!, actorColumn: actorColumn) {
+            (alertString, morethanone, success) -> Void in
             if success == false {
-                dispatch_sync(dispatch_get_main_queue()) {
-                    self.actor1Image.image = UIImage(named: "placeholder.png")
-                    self.alertNoSingleActorFound(alertString)
+                
+                if morethanone == true {
+                    dispatch_sync(dispatch_get_main_queue()) {
+                        self.performSegueWithIdentifier("toMoreThanOne", sender: self)
+                    }
+                } else {
+                    dispatch_sync(dispatch_get_main_queue()) {
+                        self.actor1Image.image = UIImage(named: "placeholder.png")
+                        self.alertNoSingleActorFound(alertString)
+                    }
+                
                 }
             }
+        }
+            
+        } else {
+        
+            alertNoSingleActorFound("You submitted a request with no name, please hit 'OK' and submit a name.")
         }
     }
     
     @IBAction func getActor2Data(sender: UIButton) {
+        
+        if actor2TextField.text != "" {
+        
+        actorColumn = 2 
         actorImageView = self.actor2Image
+        tempImageView = actorImageView
         
         if !array2.isEmpty {
             array2.removeAll()
         }
         
         
-        searchActorName(actor2TextField.text!, actorColumn: 2) { (alertString, success) -> Void in
+        searchActorName(actor2TextField.text!, actorColumn: actorColumn) { (alertString, morethanone, success) -> Void in
             if success == false {
-                dispatch_sync(dispatch_get_main_queue()) {
-                    self.actor2Image.image = UIImage(named: "placeholder.png")
-                    self.alertNoSingleActorFound(alertString)
-                    
+                
+                if morethanone == true {
+                    dispatch_sync(dispatch_get_main_queue()){
+                        self.performSegueWithIdentifier("toMoreThanOne", sender: self)
+                    }
+                
+                }else {
+                
+                    dispatch_sync(dispatch_get_main_queue()) {
+                        self.actor2Image.image = UIImage(named: "placeholder.png")
+                        self.alertNoSingleActorFound(alertString)
+                        
+                    }
+                
                 }
             }
+        }
+        } else {
+            
+            alertNoSingleActorFound("You submitted a request with no name, please hit 'OK' and submit a name.")
         }
     }
     
@@ -68,6 +111,11 @@ class ViewController: UIViewController {
                 }
             
             if success == false {
+                
+                if actor1Id == actor2Id {
+                    self.alertNoSingleActorFound("looks like you are trying to compare the same actors. please make one of them different")
+                
+                } else {
                     
                     let alert = UIAlertController(title: "Oooops" , message: "Looks like there are no common movies/films!", preferredStyle: .Alert)
                     
@@ -76,12 +124,19 @@ class ViewController: UIViewController {
                     alert.addAction(alertConfirm)
                     
                     self.presentViewController(alert, animated: true, completion: nil)
-                
+                }
             }
             
         }
 
     }
+
+    
+    func showMoreThanOneResult(){
+        self.performSegueWithIdentifier("toMoreThanOne", sender: self)
+    
+    }
+    
     
     
     func alertNoSingleActorFound(alertString: String){
