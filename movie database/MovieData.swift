@@ -78,7 +78,7 @@ func searchActorName(actorSearchName: String, actorColumn: Int, completion: (ale
                     
                     moreThanOne.removeAll()
                     
-                    for var i = 0; i < jsonResult.objectForKey("results")!.count; i++ {
+                    for i in 0..<jsonResult.objectForKey("results")!.count {
                         
                         if let moreThan = jsonResult.objectForKey("results")![i]{
                         
@@ -159,7 +159,7 @@ func findActorCredentials(actorId: Int, actorColumn: Int, completion: (success: 
                 if let _ = jsonResult.objectForKey("cast"){
                     
                     
-                    for var i = 0; i < jsonResult.objectForKey("cast")!.count; i++ {
+                    for i in 0..<jsonResult.objectForKey("cast")!.count {
                         
                         if let movieId = jsonResult.objectForKey("cast")![i] {
                             
@@ -211,7 +211,7 @@ func findActorCredentials(actorId: Int, actorColumn: Int, completion: (success: 
                 if let _ = jsonResult.objectForKey("cast"){
                     
                     
-                    for var i = 0; i < jsonResult.objectForKey("cast")!.count; i++ {
+                    for i in 0..<jsonResult.objectForKey("cast")!.count {
                         
                         if let movieId = jsonResult.objectForKey("cast")![i] {
                             
