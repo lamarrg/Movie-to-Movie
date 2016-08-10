@@ -1,8 +1,7 @@
 # Movie-to-Movie
-Compares actor resumes
 
-This is my first app created in iOS 9. It was created on my desktop, hence no updates or improvements listed here, (yet).
+This app compares actor resumes movie and tv listings, and returns the intersecting results as a list. 
 
-My initial intent was to submit it to the app store, but after further research, it appears the data provided may not always be complete. (Ex, per data pulled, "Nathan Fillion" & "Alyn Tudyk" do not show "Firefly" as a common production) 
+This is my first app created in iOS 9, and uses themoviedb.org as the data source. 
 
-There is still some error checking to do...
+My initial intent was to submit it to the app store, but after further research, there is an already an app that does exactly this. Unless I can think of additional benefits or features, it shall stay here and I will work on UI & UX. 
